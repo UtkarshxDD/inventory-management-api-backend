@@ -25,22 +25,6 @@ app.use(
 
 const __dirname = path.resolve();
 
-if (envVars.NODE_ENV === "production") {
-  app.use(
-    express.static(path.join(__dirname, "/frontend/dist"))
-  );
-  app.get("/{*any}", (req, res) => {
-    res.sendFile(
-      path.resolve(
-        __dirname,
-        "frontend",
-        "dist",
-        "index.html"
-      )
-    );
-  });
-}
-
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server started on port ${PORT}`); // Log the actual port
   connectDB(); // Connect to the database
