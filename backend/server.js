@@ -24,17 +24,16 @@ app.use(
   adminRoutes
 );
 
-const allowedOrigins = [
-  "https://ticket-app-frontend-six.vercel.app", // Your frontend URL
-  "http://localhost:5173", // For local development
-];
-
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true, // Needed if using cookies/session tokens
-  })
-);
+app.use(cors({
+  origin: [
+    'https://ticket-app-frontend-six.vercel.app',
+    'http://localhost:3000', // for development
+    'http://localhost:5173'  // if using Vite
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 
 const __dirname = path.resolve();
