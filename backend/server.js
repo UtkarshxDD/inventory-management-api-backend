@@ -24,8 +24,6 @@ app.use(
   adminRoutes
 );
 
-import cors from "cors";
-
 const allowedOrigins = [
   "https://ticket-app-frontend-six.vercel.app", // Your frontend URL
   "http://localhost:5173", // For local development
